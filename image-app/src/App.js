@@ -1,9 +1,23 @@
 import "./App.css";
+import Header from "./components/Header";
+import MovieCard from "./components/MovieCard";
+import MovieList from "./components/MovieList.json";
 
 function App() {
   return (
     <div className="App">
-      <h1>Header</h1>
+      <Header />
+      <div className="card-container">
+        {MovieList.map((movie) => {
+          return (
+            <MovieCard
+              name={movie.Title}
+              year={movie.Year}
+              img={movie.Poster}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
